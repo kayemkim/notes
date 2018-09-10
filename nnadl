@@ -1,0 +1,15 @@
+- perceptron
+  . input : several binary values
+  . output : one binary values
+  . w*x + b 가 0보다 크면 1 그렇지 않으면 0
+  
+- sigmoid
+  . output delta는 input x delta에 대한 linear function이므로 w와 b의 변화가 output에 끼치는 영향을 알 수 있다.
+
+- MLP = Multi Layer Perceptrons
+- cost function
+  . why quadratic? : smooth function을 사용하여 작은 변화를 네트워크에 반영할 수 있다.
+- on-line(incremental) learning
+  . mini-batch 대비 장단점
+    . 장점 : 더 정확한 학습(feedback)이 가능
+    . 단점 : 속도가 느리다
