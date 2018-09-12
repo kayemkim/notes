@@ -13,3 +13,67 @@
   . mini-batch 대비 장단점
     . 장점 : 더 정확한 학습(feedback)이 가능
     . 단점 : 속도가 느리다
+
+
+
+
+Perceptron
+
+    input : several binary values
+    output : one binary value
+    w*x + b 가 0보다 크면 1 그렇지 않으면 0
+    NAND  gate 구현 가능
+    한계 : NAND 게이트 구현 정도의 기능을 가진 perceptron은 그리 새로울게 없다.
+
+
+Sigmoid Neurons
+
+    [[전사R&D]Advanced Machine Learning > Chapter_1 > image2018-3-19_16-5-6.png]
+        output delta는 input(w와 b) delta 값들에 대한 linear function이므로 w와 b의 변화가 output에 끼치는 영향을 알 수 있다.
+
+Exercise
+
+    perceptron의 w, b에 양의 상수 c를 곱해줘도 우변의 값이 0이기 때문에 c로 양변을 나눠주면 식은 이전과 동일하다. 그러므로 네트워크에 변화 없음
+    sigmoid neuron에서 w와 b에 양의 무한대 c를 곱하는 경우,
+        when w*x + b > 0,  1/(e^-∞) = 1
+        when w*x + b < 0, 1/(e^∞) = 0
+        when w*x + b = 0, 1/(e^0) = 1/2 이므로 perceptron에서 나올 수 없는 케이스임
+
+
+
+Exercise
+
+    0~9를 추론하는 layer에 4개의 neuron으로 구성된 output layer를 추가한 경우의 output layer 뉴런들의 w와 b값?
+        b는 모두 0
+        w는 다음과 같음 
+
+0 0 0 0 0 0 0 0 1 1
+
+0 0 0 0 1 1 1 1 0 0
+
+0 0 1 1 0 0 1 1 0 0
+
+0 1 0 1 0 1 0 1 0 1
+
+
+
+Learning with gradient descent
+
+    why cost function is quadratic?
+        smooth function을 사용하여 작은 변화를 네트워크에 반영할 수 있다.
+
+
+On-line(incremental) learning
+
+    mini-batch 대비 장단점
+    장점
+        더 정확한 학습(feedback)이 가능
+    단점
+        학습 시간이 오래 걸린다.
+        overfitting?
+
+
+
+
+
+
