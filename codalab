@@ -1,0 +1,23 @@
+Codalab
+SQuAD와 같이 결과가 worksheet에 반영되는 형태의 macro 구현
+macro 정의 프로세스
+#1. cl wedit
+예를 들어 다음과 같이 worksheet markdown으로 추가
+### Development Set Evaluation (v1.1)
+% schema eval
+% add uuid uuid '[0:8]'
+% add description
+% add prediction_file dependencies/predictions
+% add ExactMatch /stdout:exact_match %.3f
+% add F1 /stdout:f1 %.3f
+% display table eval
+#2. cl run 실행
+cl run :evaluate-v1.1.py dataset:dev-v2.0.json predictions:elmo-pred.json 'python evaluate-v1.1.py dataset predictions' -n new
+#3. macro 정의를 위해 bundle의 이름 변경
+cl edit elmo-pred.json -n dev-evaluate-in1
+cl edit new -n dev-evaluate-out
+#4. 테스트
+cl macro dev-evaluate elmo-pred.json 
+참고 : Codalab의 문서 중에 executable papers 부분 
+https://github.com/codalab/codalab-worksheets/wiki/Executable-Papers
+
